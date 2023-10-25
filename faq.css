@@ -1,6 +1,3 @@
-fit-image{
-  
-}
 /* Apply styles to anchor links */
 a.nav-link:link, a.nav-link:visited {
     text-decoration: none; /* Remove underlines from links */
@@ -33,7 +30,7 @@ button{
 button.image-button {
   display: flex;
   align-items: center;
-  background: bisque;
+  background: #0056b3;
   border-color: black;
   cursor: pointer;
 }
@@ -47,7 +44,7 @@ button.image-button img.fit-picture {
 
 /* Style for rounded background */
 .rounded-background {
-    background-color: rgb(214, 137, 36);; /* Set the background color */
+    background-color: #0056b3; /* Set the background color */
     border-radius: 10px; /* Adjust the border radius to control the degree of rounding */
     padding: 20px; /* Add padding for content within the rounded background */
   }
@@ -61,7 +58,7 @@ strong{
     color: black;
 }
 section {
-    background-color: rgb(214, 137, 36);
-    color: black;
+    background-color: #0056b3;
+    color: #D47A0F;
     margin: 20px;
 }
