@@ -1,1 +1,28 @@
-//faq css
+/* Apply styles to anchor links */
+a.nav-link:link, a.nav-link:visited {
+    text-decoration: none; /* Remove underlines from links */
+    color: #231e1e; /* Set text color to black */
+}
+a.nav-link:hover, a.nav-link:active {
+    text-decoration: none; /* Remove underlines from links */
+    color: #be2020; /* Set text color to black */
+}
+.rounded-background {
+    background-color: rgb(214, 137, 36);; /* Set the background color */
+    border-radius: 10px; /* Adjust the border radius to control the degree of rounding */
+    padding: 20px; /* Add padding for content within the rounded background */
+  }
+/* Apply styles to sections */
+body {
+    margin: -10px;
+    background-color: lightblue;
+}
+strong{
+    text-decoration-line: underline;
+    color: black;
+}
+section {
+    background-color: rgb(214, 137, 36);
+    color: black;
+    margin: 20px;
+}
