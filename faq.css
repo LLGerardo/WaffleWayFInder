@@ -7,6 +7,41 @@ a.nav-link:hover, a.nav-link:active {
     text-decoration: none; /* Remove underlines from links */
     color: #be2020; /* Set text color to black */
 }
+button{
+    background-color: bisque;
+}
+#back-to-top-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  #back-to-top-button:hover {
+    background-color: bisque;
+  }
+  
+/* Style for the button container */
+.image-button {
+  display: flex; /* Use flexbox to align items horizontally */
+  align-items: center; /* Center items vertically */
+  background-color: bisque; /* Remove default button background */
+  border-color: black; /* Remove default button border */
+  cursor: pointer; /* Change cursor on hover (optional) */
+}
+/* Style for the image inside the button */
+.fit-picture {
+  width: 40px; /* Set the width of the image as needed */
+  height: 40px; /* Set the height of the image as needed */
+  margin-right: 10px; /* Add spacing between image and text (optional) */
+}
+/* Style for rounded background */
 .rounded-background {
     background-color: rgb(214, 137, 36);; /* Set the background color */
     border-radius: 10px; /* Adjust the border radius to control the degree of rounding */

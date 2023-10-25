@@ -8,7 +8,7 @@
 </head>
   <body>
     
-    <h1>
+    <h1 id="Topfaq">
         <button><a href="#ForgottenPasswordFAQ" class="nav-link">Forgotten Password </a></button> <!--the # tells the href that it is within the same document-->
         <button><a href="#WaffleWayFAQ" class="nav-link">What is WaffleWay</a></button>
         <button><a href="#DummyButtonFAQ" class="nav-link">Getting Started</a></button>
@@ -16,7 +16,11 @@
         <button><a href="#FindWaffleRecipesFAQ" class="nav-link"> Where to Find Recipes</a></button>
         <button><a href="#DummyButtonFAQ" class="nav-link">About Us</a></button>
         <button><a href="#DummyButtonFAQ" class="nav-link">Account Managment</a></button>
-        <button><a href="#DummyButtonFAQ" class="nav-link">Maps</a></button>
+        <button class="image-button">
+            <img class="fit-picture" src="media/Logo.png" alt="Waffle on a fork">
+            <a href="#DummyButtonFAQ" class="nav-link">Maps</a>
+          </button>
+          
     </h1>
     <section id=AccountCreatioFAQ class="rounded-background">
         <p>
@@ -85,5 +89,7 @@
     </section> 
    <!-- remember me (might get rid of this)-->
    <!-- facebook or google authentication (might get rid of this)-->
-   </body>
+   <button id="back-to-top-button">Back to Top</button>
+   <script src="faq.js"></script>
+</body>
 </html>
