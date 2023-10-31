@@ -28,7 +28,7 @@ a.nav-link:hover, a.nav-link:active {
 }
 .button-container {
   display: flex;
-  flex-wrap: wrap;
+  /*flex-wrap: wrap;*/
   justify-content: space-between; /* Distribute the buttons horizontally */
   gap: 10px; /* Adjust the gap as needed to control spacing between buttons */
   margin-bottom: 20px; /* Add spacing between groups of buttons */
@@ -57,7 +57,7 @@ a.nav-link:hover, a.nav-link:active {
     cursor: pointer;
   }
   
-  #back-to-top-button:hover {
+#back-to-top-button:hover {
     background-color: bisque;
   }
 /* Style for the button container */
@@ -71,12 +71,11 @@ button.image-button {
 
 /* Style for images within buttons */
 button.image-button img.fit-picture {
-  width: 60px; /* Adjust the image width as needed */
-  height: 60px; /* Adjust the image height as needed */
-  margin-right: 10px; /* Add spacing between image and text (optional) */
+  width: 60px; /* Adjust the image width */
+  height: 60px; /* Adjust the image height */
+  margin-right: 10px; /* Add spacing between image and text*/
   border-radius: 30px;
   border: none;
-
 }
 
 /* Style for rounded background */
@@ -98,4 +97,26 @@ section {
     background-color: #0F69D4;
     color: #D47A0F;
     margin: 20px;
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center horizontally */
+  height: 100px; /* Adjust the height as needed for vertical centering */
+}
+
+#search-input {
+  padding: 5px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#search-button {
+  background-color: #0F69D4;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
 }

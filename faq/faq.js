@@ -1,4 +1,4 @@
-//faq javascript file
+//to top button
 const button = document.getElementById('back-to-top-button');
 
 button.addEventListener('click', () => {
@@ -12,4 +12,18 @@ window.addEventListener('scroll', () => {
   } else {
     button.style.display = 'none';
   }
+});
+//searching
+document.getElementById("search-button").addEventListener("click", function () {
+  var searchQuery = document.getElementById("search-input").value.toLowerCase();
+  var sections = document.querySelectorAll("section"); // Assuming you want to search within sections
+
+  sections.forEach(function (section) {
+    var sectionText = section.textContent.toLowerCase();
+    if (sectionText.includes(searchQuery)) {
+      section.style.display = "block"; // Show sections that match the search
+    } else {
+      section.style.display = "none"; // Hide sections that don't match
+    }
+  });
 });
