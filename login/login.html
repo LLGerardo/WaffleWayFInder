@@ -3,36 +3,37 @@
   <head>
     <title>Login</title>
     <link rel="stylesheet" type="text/css" href="login.css">
-    <label for="login">Login</label>
   </head>
   <header>
-    <img class="fit-picture" src="../media/WaffleWayLogo.png" alt="WaffleWay logo a Waffle atop a fork covered in syrup">
+    <a href="homepage.html"><img class="fit-picture" src="../media/WaffleWayLogo.png" alt="WaffleWay logo a Waffle atop a fork covered in syrup"></a>
     <div class="button-container">
-        <a href="soon-to-be-created-page1.html" class="button">List</a>
-        <a href="soon-to-be-created-page2.html" class="button">Make a Waffle</a>
-        <a href="soon-to-be-created-page3.html" class="button">FAQ</a>
-        <a href="soon-to-be-created-page4.html" class="button">Login</a>
-        <a href="soon-to-be-created-page5.html" class="button">Account</a>
+      <a href="soon-to-be-created-page1.html" class="button">List</a>
+      <a href="soon-to-be-created-page2.html" class="button">Make a Waffle</a>
+      <a href="soon-to-be-created-page3.html" class="button">FAQ</a>
+      <a href="soon-to-be-created-page4.html" class="button">Login</a>
+      <a href="soon-to-be-created-page5.html" class="button">Account</a>
     </div>
-</header>
+  </header>
   <br>
   <body>
-    <label for="newuser">New to Waffle Way?</label>
-    <a href="https://urlforsignuppage">Sign Up Here!</a> <!--need to update sign up url-->
-    <form action="/login-url" method="POST"> <!--need to update login url-->
+    <div class="content">
+      <label><strong>Login</strong></label>
       <br>
-      <label for="email">Enter your email:</label>
-      <input type="text" id="username" name="username">
+      <label for="newuser"> <strong>New to Waffle Way?</strong></label>
+      <a href="https://urlforsignuppage" class="nav-link">Sign Up Here!</a>
       <br>
-      <label for="password">Enter your password:</label>
-      <input type="password" id="password" name="password">
       <br>
-      <button type="submit">Submit</button>
-      <br>
-      <button type="button" id="forgot-password">Forgot password?</button>
-    </form>
-   
-   <!-- remember me (might get rid of this)-->
-   <!-- facebook or google authentication (might get rid of this)-->
-   </body>
+      <form action="/login-url" method="POST">
+        <label for="email">Enter your email:</label>
+        <input type="text" id="username" name="username">
+        <br>
+        <label for="password">Enter your password:</label>
+        <input type="password" id="password" name="password">
+        <br>
+        <br>
+        <button class="button" type="submit">Submit</button>
+        <button class="button" type="button" id="forgot-password">Forgot password?</button>
+      </form>
+    </div>
+  </body>
 </html>

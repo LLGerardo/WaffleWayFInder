@@ -1,11 +1,30 @@
 form {
-    color: rgb(234, 240, 114);
+    color: black;
     text-align: center;
 }
 body {
-    margin: -10px;
-    background-color: lightblue;
-    color:black
+margin: 0;
+background-color: #C6E3F3;
+color: black;
+display: flex;
+flex-direction: column; /* Stack elements vertically */
+align-items: center; /* Center elements horizontally */
+justify-content: center; /* Center elements vertically */
+height: 100vh;
+}
+
+.content {
+background-color: white;
+border-radius: 20px;
+padding: 20px;
+text-align: center;
+}
+  
+.login-container {
+    background-color: white;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
 }
 /* Apply styles to anchor links */
 header {
@@ -33,7 +52,7 @@ a.nav-link:link, a.nav-link:visited {
 }
 a.nav-link:hover, a.nav-link:active {
     text-decoration: none; /* Remove underlines from links */
-    color: #fdfdfd; /* Set text color to black */
+    color: #e88c01; /* Set text color to black */
 }
 .button-container { /* keeps buttons separated*/
 display: flex;
@@ -48,4 +67,9 @@ background-color: #0F69D4;
 color: white;
 cursor: pointer;
 text-decoration: none;
+}
+strong{
+    text-decoration-line: none;
+    color: black;
+    font-size-adjust: +20px;
 }
