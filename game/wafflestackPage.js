@@ -1,5 +1,6 @@
 "use strict";
 console.clear();
+
 class Stage {
     constructor() {
         // container
@@ -13,18 +14,19 @@ class Stage {
             this.scene.remove(elem);
         };
         this.container = document.getElementById('game');
+        
         // renderer
         this.renderer = new THREE.WebGLRenderer({
             antialias: true,
             alpha: false
         });
-        this.renderer.setSize(window.innerWidth, window.innerHeight);
+        this.renderer.setSize(window.innerWidth/2, window.innerHeight/2);
         this.renderer.setClearColor('#D0CBC7', 1);
         this.container.appendChild(this.renderer.domElement);
         // scene
         this.scene = new THREE.Scene();
         // camera
-        let aspect = window.innerWidth / window.innerHeight;
+        let aspect = window.innerWidth/2 / window.innerHeight/2;
         let d = 20;
         this.camera = new THREE.OrthographicCamera(-d * aspect, d * aspect, d, -d, -100, 1000);
         this.camera.position.x = 2;
@@ -40,17 +42,19 @@ class Stage {
         window.addEventListener('resize', () => this.onResize());
         this.onResize();
     }
-    setCamera(y, speed = 0.3) {
+    setCamera(y, speed = 5.0) {
         TweenLite.to(this.camera.position, speed, { y: y + 4, ease: Power1.easeInOut });
         TweenLite.to(this.camera.lookAt, speed, { y: y, ease: Power1.easeInOut });
     }
-    onResize() {
+    onResize() { //This is what I changed to make the window of the game more smaller - divided the height and width
         let viewSize = 30;
-        this.renderer.setSize(window.innerWidth, window.innerHeight);
-        this.camera.left = window.innerWidth / -viewSize;
-        this.camera.right = window.innerWidth / viewSize;
-        this.camera.top = window.innerHeight / viewSize;
-        this.camera.bottom = window.innerHeight / -viewSize;
+        this.renderer.setSize(900, 800); //change the grey window of the block game HERE!
+
+        //this.renderer.setSize(window.innerWidth/2, window.innerHeight/2);
+        this.camera.left = window.innerWidth/2 / -viewSize;
+        this.camera.right = window.innerWidth/2 / viewSize;
+        this.camera.top = window.innerHeight/2 / viewSize;
+        this.camera.bottom = window.innerHeight/2 / -viewSize;
         this.camera.updateProjectionMatrix();
     }
 }
@@ -73,21 +77,28 @@ class Block {
         this.position.y = this.dimension.height * this.index;
         this.position.z = this.targetBlock ? this.targetBlock.position.z : 0;
         this.colorOffset = this.targetBlock ? this.targetBlock.colorOffset : Math.round(Math.random() * 100);
-        // set color
-        if (!this.targetBlock) {
-            this.color = 0x333344;
-        }
-        else {
-            let offset = this.index + this.colorOffset;
-            var r = Math.sin(0.3 * offset) * 55 + 200;
-            var g = Math.sin(0.3 * offset + 2) * 55 + 200;
-            var b = Math.sin(0.3 * offset + 4) * 55 + 200;
-            this.color = new THREE.Color(r / 255, g / 255, b / 255);
-        }
+
+// Define an array of predefined colors
+    const predefinedColors = [
+        //0xa8133f, // strawberry jam
+        0xe09f4a,// Yellow - waffle/honey
+        0xFEAE34, // Brown - waffle
+        0xf5efda,
+        0xd47a0F
+    ];
+    // Set color
+    if (!this.targetBlock) {
+        this.color = 0x3C4142;
+    } else {
+        const offset = this.index + this.colorOffset;
+        const colorIndex = offset % predefinedColors.length;
+        this.color = new THREE.Color(predefinedColors[colorIndex]);
+    }
+
         // state
         this.state = this.index > 1 ? this.STATES.ACTIVE : this.STATES.STOPPED;
         // set direction
-        this.speed = -0.1 - (this.index * 0.005);
+        this.speed = -0.1 - (this.index * 0.03); //This is the part that edits the speed at which the blocks fly in
         if (this.speed < -4)
             this.speed = -4;
         this.direction = this.speed;
@@ -101,6 +112,7 @@ class Block {
             this.position[this.workingPlane] = Math.random() > 0.5 ? -this.MOVE_AMOUNT : this.MOVE_AMOUNT;
         }
     }
+    
     reverseDirection() {
         this.direction = this.direction > 0 ? this.speed : Math.abs(this.speed);
     }
@@ -188,27 +200,46 @@ class Game {
         this.addBlock();
         this.tick();
         this.updateState(this.STATES.READY);
-        document.addEventListener('keydown', e => {
-            if (e.keyCode == 32)
-                this.onAction();
-        });
+        
+
+
+    // Add a click event listener to the button
+    this.startButton.addEventListener('click', () => this.onStartRestartButtonClick());
+    this.startButton.addEventListener('start-button', () => this.onStartRestartButtonClick());//dosen't work rn
+
+
+/* if(game.state == game.STATES.LOADING){
+                this.starttextcontainer.style.visibility = 'visible';
+            }*/
+        //if click on page
         document.addEventListener('click', e => {
-            this.onAction();
+            // Handle the click event or trigger the game actions here
+            
+            if (game.state === game.STATES.READY) {
+                game.startGame();
+            } else if (game.state === game.STATES.PLAYING) {
+                game.placeBlock();
+            }
         });
-        document.addEventListener('touchstart', e => {
-            e.preventDefault();
+        //if click on start button
+        document.addEventListener('start-button', e => {
+    // Handle the touch event or trigger the game actions here
+    if (game.state === game.STATES.READY) {
+        game.startGame();
+        this.scoreContainer.style.visibility = 'visible'; // Make the score visible
+    } else if (game.state === game.STATES.PLAYING) {
+        game.placeBlock();
+    }
             // this.onAction();
             // ☝️ this triggers after click on android so you
             // insta-lose, will figure it out later.
         });
+        
     }
-    updateState(newState) {
-        for (let key in this.STATES)
-            this.mainContainer.classList.remove(this.STATES[key]);
-        this.mainContainer.classList.add(newState);
-        this.state = newState;
-    }
-    onAction() {
+    onStartRestartButtonClick() {
+        // Handle the button click logic here.
+        // This function is called when the button is clicked.
+        // You can put your game restart logic here.
         switch (this.state) {
             case this.STATES.READY:
                 this.startGame();
@@ -221,14 +252,24 @@ class Game {
                 break;
         }
     }
+      
+    updateState(newState) {
+        for (let key in this.STATES)
+            this.mainContainer.classList.remove(this.STATES[key]);
+        this.mainContainer.classList.add(newState);
+        this.state = newState;
+    }
+    
     startGame() {
         if (this.state != this.STATES.PLAYING) {
-            this.scoreContainer.innerHTML = '0';
+            this.scoreContainer.style.visibility = 'visible'; // Make the score visible
+            this.scoreContainer.innerHTML = '1';
             this.updateState(this.STATES.PLAYING);
             this.addBlock();
         }
     }
     restartGame() {
+        /*
         this.updateState(this.STATES.RESETTING);
         let oldBlocks = this.placedBlocks.children;
         let removeSpeed = 0.2;
@@ -245,6 +286,22 @@ class Game {
         setTimeout(() => {
             this.startGame();
         }, cameraMoveSpeed * 1000);
+        */
+       // Remove all previously placed blocks
+        this.placedBlocks.children.length = 0;
+
+    // Remove all previously chopped blocks
+        this.choppedBlocks.children.length = 0;
+
+        this.blocks = [];
+        this.updateState(this.STATES.READY); // Change the state to ready for a new game.
+        this.scoreContainer.style.visibility = 'hidden';
+        this.addBlock();
+        /*
+        this.blocks = this.blocks.slice(0, 1);
+        setTimeout(() => {
+            this.startGame();
+        }, cameraMoveSpeed * 1000);*/
     }
     placeBlock() {
         let currentBlock = this.blocks[this.blocks.length - 1];
@@ -288,6 +345,7 @@ class Game {
     }
     endGame() {
         this.updateState(this.STATES.ENDED);
+        this.updateState(this.STATES.LOADING);
     }
     tick() {
         this.blocks[this.blocks.length - 1].tick();
