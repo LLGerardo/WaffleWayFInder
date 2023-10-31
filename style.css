@@ -1,35 +1,60 @@
-@import url("https://fonts.googleapis.com/css?family=Comfortaa");
-html,
-body {
-  margin: 0;
-  overflow: hidden;
-  height: 100%;
-  width: 100%;
-  position: relative;
-  font-family: "Comfortaa", cursive;
+html, body {
+  margin: 100;
+  /*  overflow: hidden;*/
+  height: 95%;
+  width: 80%;
+  position: relative; /*Changed from absolute to relative so it move with the flow of the window*/
+  font-family: "Times New Roman" , Georgia, serif
 }
 
+#title {
+    position: relative;
+    font-size: 24px;
+    margin-top:0px;
+    text-align: center;
+  }
+  
+  img {
+    /*padding: 5px;*/
+    position: relative; /*Changed from absolute to relative so it move with the flow of the window*/
+    top: 1%;
+    width: 320px;
+  }
+
 #container {
-  width: 100%;
-  height: 100%;
+    /*margin-top: -300px;*/
+  width: 50%;
+  height: 80%;
+  position: relative; /*Changed from absolute to relative so it move with the flow of the window*/
+  top: 70%;
+  left:70%;
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
+
+
 }
+.border {
+  border: 1px solid black;
+  padding: 1px;
+ }
 #container #score {
-  position: absolute;
-  top: 20px;
+  position: relative; /*Changed from absolute to relative so it move with the flow of the window*/
+  top:25% ;
+  left:170%;
   width: 100%;
-  text-align: center;
   font-size: 10vh;
   transition: transform 0.5s ease;
-  color: #333344;
-  transform: translatey(-200px) scale(1);
+  color: #1010c6;
 }
-#container #game {
-  position: absolute;
+#container #game { /*moves the actual stack position of the game*/
+  position: relative;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
 }
+
+/*
 #container .game-over {
   position: absolute;
   top: 0;
@@ -40,12 +65,12 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-#container .game-over * {
+} 
+#container .game-over * { /
   transition: opacity 0.5s ease, transform 0.5s ease;
   opacity: 0;
   transform: translatey(-50px);
-  color: #333344;
+  color: #10c4ec;
 }
 #container .game-over h2 {
   margin: 0;
@@ -63,24 +88,23 @@ body {
   align-items: center;
   justify-content: space-around;
 }
+*/ /* This is the ending game message for GAMEOVER */
 #container .game-ready #start-button {
   transition: opacity 0.5s ease, transform 0.5s ease;
-  opacity: 0;
+  opacity: 10;
   transform: translatey(-50px);
-  border: 3px solid #333344;
+  border: 3px solid #000000;
   padding: 10px 20px;
   background-color: transparent;
   color: #333344;
   font-size: 30px;
 }
 #container #instructions {
-  position: absolute;
+  position: relative; /*Changed from absolute to relative so it move with the flow of the window*/
   width: 100%;
-  top: 16vh;
-  left: 0;
+  top: 350px;
+  left: 100px;
   text-align: center;
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  opacity: 0;
 }
 #container #instructions.hide {
   opacity: 0 !important;

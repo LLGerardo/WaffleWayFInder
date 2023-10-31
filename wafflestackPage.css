@@ -1,0 +1,218 @@
+/* CSS Centering Code with the h2 Selector "*" */ 
+
+h1 {
+    text-align: left;
+    margin:0px;
+    margin-left: 50px; /*Moved because of pin image on the left of header*/
+    color: #D47A0F;
+    }
+h2{
+    font-size: 30px;
+    margin-left: 80px; /*moved because of pin image on the left of header*/
+    margin-top: -10px;
+    color:#000000;
+    /*    cursor: pointer;*/
+}
+h3{
+    font-size: 30px; /*heading for instructions for game*/
+    margin-left: 160px; /*moved because of pin image on the left of header*/
+    margin-top: 330px;
+    color:#fbbb27;
+    /*    cursor: pointer;*/
+}
+/*Can change how the pointer is presented when hovering over the text*/
+p{
+    margin-left: 20px;
+    font-size: 18px;
+    text-align: left;
+}
+/*
+img{ adjusts the image of logowaff 
+    width: 200px;
+    height: 200px;
+    float: left;
+    position: left;
+    margin-left:-80px; /*has to be in negative or else it won't get more left
+    margin-top:-400px;
+     float: left; Changes the position of image left or right using inline styles
+}
+*/
+
+img {
+    /*padding: 5px;*/
+    position: relative; /*Changed from absolute to relative so it move with the flow of the window*/
+    margin-top: 90px;
+    margin-left: 0px;
+    /*width: 320px;*/
+    
+  }
+  
+
+
+    /* Styling */
+    
+    body {
+      margin: auto;
+      width: 100%; 
+      padding: 50px;
+      font-family: 'League Gothic', sans-serif;
+      font-size: 30px;
+      font-style:normal;
+      color: #e1a014;    
+    }
+    
+    #container {
+        /*margin-top: -300px;*/
+      width: 15px;
+      height: 30px;
+      position: relative; /*Changed from absolute to relative so it move with the flow of the window*/
+      top: -100px;
+      left:350px;
+      transform: translate(-50%, -50%);
+      pointer-events: auto;    
+    
+    }
+    #container #game { /*moves the actual stack position of the game*/
+        position: relative;
+        top: 0;
+        bottom: 0;
+        left: 0;
+      }
+    #container #score {
+        position: relative; /*Changed from absolute to relative so it move with the flow of the window*/
+        top:-900px ;
+        left:800px;
+        /*
+        width: 100%;
+        */
+        font-size: 35px;
+        transition: transform 0.5s ease;
+        color: #2020ff;
+      }
+    #container .game-over{
+      position: relative;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      /*3:09stamp*/
+    }
+    #container .game-over *{
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      opacity: 0;
+      transform: translateY(-50px);
+      color: #ea68c1;
+    }
+    #container .game-over h2{ /*header for game over*/
+      margin: 0;
+      padding: 0;
+      font-size: 40px;
+    }
+    #container .game-ready{
+      position: relative;
+      top: 0;
+      left:0;
+      width: 100%;
+      height: 100%;
+      display: flex; /*flex from notes?*/
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+    }
+    #container .game-ready #start-button {
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      opacity: 0;
+      transform: translateY(-50px);
+      border: 3px solid #333344;
+      padding: 10px 20px;
+      background-color: aqua;
+      color: #ea68c1;
+      font-size: 30px;
+    }
+
+    #container.playing #score, #container.resetting #score {
+        transform: translatey(0px) scale(1);
+    }
+    #container.ready .game-ready #start-button {
+        opacity: 1;
+        transform: translatey(0);
+    }
+    #container.ended #score {
+        transform: translatey(6vh) scale(1.5);
+    }
+    #container.ended .game-over * {
+        opacity: 1;
+        transform: translatey(0);
+    }
+    #container.ended .game-over p {
+        transition-delay: 0.3s;
+    }
+
+#container #instructions { /*Game instructions*/
+  position: relative; /*Changed from absolute to relative so it move with the flow of the window*/
+  width: 100%;
+  top: 350px;
+  left: 100px;
+  text-align: center;
+}
+
+    /* This is for the linking to the other page rn it's displayed as "Home" and it links to the login page*/
+    
+/* Navlink for headers got this from online*/
+a.nav-Link:link{
+    color:#D47A0F;
+    text-decoration: none;
+}
+a.nav-Link:visited
+{
+   color: #D47A0F;
+   text-decoration: none;
+}
+a.nav-Link:hover
+{
+   color: #D47A0F;
+   text-decoration: none;
+}
+a.nav-Link:active
+{
+   color: #D47A0F;
+   text-decoration: none;
+}
+/*header2*/
+a.header2-Link:link{
+    color:#000000;
+    text-decoration: none;
+}
+a.header2-Link:visited
+{
+   color: #000000;
+   text-decoration: none;
+}
+a.header2-Link:hover
+{
+   color: #000000;
+   text-decoration: none;
+}
+a.header2-Link:active
+{
+   color: #000000;
+   text-decoration: none;
+}
+
+
+/* Style for the button */
+#start-button {
+  text-align: center;
+  background-color: #ffc1fe;  
+  color: rgb(0, 0, 0); 
+  border: none; /* Remove border */
+  padding: 10px 20px; /* Add some padding to the button */
+  position: relative;
+  top: 300px;
+  cursor: pointer; /* Add a pointer cursor on hover */
+  font-size: 16px; /* Set the font size */
+  width: 100px;
+}
+/* Style for the button on hover */
+#start-button:hover {
+  background-color: #ea68c1; /* Darker green color on hover */
+}

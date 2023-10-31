@@ -200,55 +200,59 @@ class Game {
         this.addBlock();
         this.tick();
         this.updateState(this.STATES.READY);
-        // Get a reference to the start/restart button
-    this.startRestartButton = document.getElementById('start-restart-button');
+        
+
 
     // Add a click event listener to the button
-    this.startRestartButton.addEventListener('click', () => this.onStartRestartButtonClick());
+    this.startButton.addEventListener('click', () => this.onStartRestartButtonClick());
+    this.startButton.addEventListener('start-button', () => this.onStartRestartButtonClick());//dosen't work rn
 
-        document.addEventListener('keydown', e => {
-            if (e.keyCode == 32)
-                this.onAction();
-        });
+
+/* if(game.state == game.STATES.LOADING){
+                this.starttextcontainer.style.visibility = 'visible';
+            }*/
+        //if click on page
         document.addEventListener('click', e => {
-            //this.onAction();
             // Handle the click event or trigger the game actions here
-    if (game.state === game.STATES.READY) {
-        game.startGame();
-    } else if (game.state === game.STATES.PLAYING) {
-        game.placeBlock();
-    } else if (game.state === game.STATES.ENDED) {
-        game.restartGame();
-    }
+            
+            if (game.state === game.STATES.READY) {
+                game.startGame();
+            } else if (game.state === game.STATES.PLAYING) {
+                game.placeBlock();
+            }
         });
-        document.addEventListener('touchstart', e => {
-            e.preventDefault(); // Prevent the touch event from propagating
+        //if click on start button
+        document.addEventListener('start-button', e => {
     // Handle the touch event or trigger the game actions here
     if (game.state === game.STATES.READY) {
         game.startGame();
+        this.scoreContainer.style.visibility = 'visible'; // Make the score visible
     } else if (game.state === game.STATES.PLAYING) {
         game.placeBlock();
-    } else if (game.state === game.STATES.ENDED) {
-        game.restartGame();
     }
             // this.onAction();
             // ☝️ this triggers after click on android so you
             // insta-lose, will figure it out later.
         });
+        
     }
     onStartRestartButtonClick() {
+        // Handle the button click logic here.
+        // This function is called when the button is clicked.
+        // You can put your game restart logic here.
         switch (this.state) {
-          case this.STATES.READY:
-            this.startGame();
-            break;
-          case this.STATES.PLAYING:
-            this.placeBlock();
-            break;
-          case this.STATES.ENDED:
-            this.restartGame();
-            break;
+            case this.STATES.READY:
+                this.startGame();
+                break;
+            case this.STATES.PLAYING:
+                this.placeBlock();
+                break;
+            case this.STATES.ENDED:
+                this.restartGame();
+                break;
         }
-      }
+    }
+      
     updateState(newState) {
         for (let key in this.STATES)
             this.mainContainer.classList.remove(this.STATES[key]);
@@ -258,7 +262,8 @@ class Game {
     
     startGame() {
         if (this.state != this.STATES.PLAYING) {
-            this.scoreContainer.innerHTML = '0';
+            this.scoreContainer.style.visibility = 'visible'; // Make the score visible
+            this.scoreContainer.innerHTML = '1';
             this.updateState(this.STATES.PLAYING);
             this.addBlock();
         }
@@ -282,10 +287,21 @@ class Game {
             this.startGame();
         }, cameraMoveSpeed * 1000);
         */
+       // Remove all previously placed blocks
+        this.placedBlocks.children.length = 0;
+
+    // Remove all previously chopped blocks
+        this.choppedBlocks.children.length = 0;
+
+        this.blocks = [];
+        this.updateState(this.STATES.READY); // Change the state to ready for a new game.
+        this.scoreContainer.style.visibility = 'hidden';
+        this.addBlock();
+        /*
         this.blocks = this.blocks.slice(0, 1);
         setTimeout(() => {
             this.startGame();
-        }, cameraMoveSpeed * 1000);
+        }, cameraMoveSpeed * 1000);*/
     }
     placeBlock() {
         let currentBlock = this.blocks[this.blocks.length - 1];
@@ -329,6 +345,7 @@ class Game {
     }
     endGame() {
         this.updateState(this.STATES.ENDED);
+        this.updateState(this.STATES.LOADING);
     }
     tick() {
         this.blocks[this.blocks.length - 1].tick();
