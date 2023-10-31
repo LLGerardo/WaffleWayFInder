@@ -5,7 +5,7 @@ a.nav-link:link, a.nav-link:visited {
 }
 a.nav-link:hover, a.nav-link:active {
     text-decoration: none; /* Remove underlines from links */
-    color: #be2020; /* Set text color to black */
+    color: #fdfdfd; /* Set text color to black */
 }
 button{
     background-color: bisque;
