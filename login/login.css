@@ -7,3 +7,45 @@ body {
     background-color: lightblue;
     color:black
 }
+/* Apply styles to anchor links */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+    background-color: #C6E3F3;
+}
+.logo {
+width: 100px;
+height: 100px;
+margin-right: 20px;
+}
+a.nav-link:link, a.nav-link:visited {
+    text-decoration: none; /* Remove underlines from links */
+    color: #231e1e; /* Set text color to black */
+    border-radius: 20px;
+    margin-top: 15px;
+    margin-left: -10px;
+    margin-right:-10px;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+a.nav-link:hover, a.nav-link:active {
+    text-decoration: none; /* Remove underlines from links */
+    color: #fdfdfd; /* Set text color to black */
+}
+.button-container { /* keeps buttons separated*/
+display: flex;
+justify-content: flex-start;
+}
+.button {
+margin-right: 10px;
+padding: 10px 20px;
+border: none;
+border-radius: 20px;
+background-color: #0F69D4;
+color: white;
+cursor: pointer;
+text-decoration: none;
+}

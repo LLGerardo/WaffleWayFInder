@@ -1,21 +1,55 @@
 /* Apply styles to anchor links */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
+  background-color: #C6E3F3;
+}
+.logo {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+}
 a.nav-link:link, a.nav-link:visited {
     text-decoration: none; /* Remove underlines from links */
     color: #231e1e; /* Set text color to black */
+    border-radius: 20px;
+    margin-top: 15px;
+    margin-left: -10px;
+    margin-right:-10px;
+    margin-bottom: 30px;
+    padding: 10px;
 }
 a.nav-link:hover, a.nav-link:active {
     text-decoration: none; /* Remove underlines from links */
     color: #fdfdfd; /* Set text color to black */
 }
-button{
-    background-color: bisque;
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Distribute the buttons horizontally */
+  gap: 10px; /* Adjust the gap as needed to control spacing between buttons */
+  margin-bottom: 20px; /* Add spacing between groups of buttons */
+}
+
+.button {
+  margin-right: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #0F69D4;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
 }
 #back-to-top-button {
     position: fixed;
     bottom: 20px;
     right: 20px;
     display: none;
-    background-color: #0056b3;
+    background-color: #0F69D4;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -30,35 +64,38 @@ button{
 button.image-button {
   display: flex;
   align-items: center;
-  background: #0056b3;
-  border-color: black;
+  background:none;
+  border: none;
   cursor: pointer;
 }
 
 /* Style for images within buttons */
 button.image-button img.fit-picture {
-  width: 40px; /* Adjust the image width as needed */
-  height: 40px; /* Adjust the image height as needed */
+  width: 60px; /* Adjust the image width as needed */
+  height: 60px; /* Adjust the image height as needed */
   margin-right: 10px; /* Add spacing between image and text (optional) */
+  border-radius: 30px;
+  border: none;
+
 }
 
 /* Style for rounded background */
 .rounded-background {
-    background-color: #0056b3; /* Set the background color */
-    border-radius: 10px; /* Adjust the border radius to control the degree of rounding */
+    background-color: #0F69D4; /* Set the background color */
+    border-radius: 20px; /* Adjust the border radius to control the degree of rounding */
     padding: 20px; /* Add padding for content within the rounded background */
   }
 /* Apply styles to sections */
 body {
     margin: -10px;
-    background-color: lightblue;
+    background-color: #C6E3F3;
 }
 strong{
     text-decoration-line: underline;
     color: black;
 }
 section {
-    background-color: #0056b3;
+    background-color: #0F69D4;
     color: #D47A0F;
     margin: 20px;
 }
