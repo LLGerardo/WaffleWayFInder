@@ -42,7 +42,7 @@ class Stage {
         window.addEventListener('resize', () => this.onResize());
         this.onResize();
     }
-    setCamera(y, speed = 5.0) {
+    setCamera(y, speed = 0.3) {//5.0
         TweenLite.to(this.camera.position, speed, { y: y + 4, ease: Power1.easeInOut });
         TweenLite.to(this.camera.lookAt, speed, { y: y, ease: Power1.easeInOut });
     }
