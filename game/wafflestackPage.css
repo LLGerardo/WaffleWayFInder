@@ -216,3 +216,22 @@ a.header2-Link:active
 #start-button:hover {
   background-color: #ea68c1; /* Darker green color on hover */
 }
+.button-container {
+  display: flex;
+  /*flex-wrap: wrap;*/
+ /* justify-content: space-between; /* Distribute the buttons horizontally */
+  gap: 10px; /* Adjust the gap as needed to control spacing between buttons */
+  margin-bottom: 20px; /* Add spacing between groups of buttons */
+  justify-content: center;
+}
+
+.button {
+  margin-right: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #0F69D4;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
