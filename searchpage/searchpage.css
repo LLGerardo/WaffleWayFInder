@@ -1,0 +1,164 @@
+body {
+   background-image:url('../media/waffles-waffle.gif'); 
+    background-size: cover;
+   background-repeat:repeat;
+   }
+h1{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #D47A0F;
+}
+.wrapper {
+    max-width: 3000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.logo img{
+    display: left;
+    margin: auto;
+    width: 300px;
+    height: 300px;
+}
+
+.top-bar {
+    text-align: right;
+}
+
+.nav-links {
+    display: inline;
+    margin-right: 20px;
+}
+
+.nav-links button {
+    width:100px;
+    height: 40px;
+    color:#D47A0F;
+    text-decoration-color: #d47a0f;
+    background-color: #00508f;
+}
+
+
+.wrap{
+  width: 50%;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.search {
+    width: 100%;
+    position: relative;
+    display: flex;
+}
+  
+.searchTerm {
+    width: 100%;
+    border: 3px solid #00508f;
+    border-right: none;
+    padding: 5px;
+    height: 20px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #9DBFAF;
+}
+  
+.searchTerm:focus{
+    color:black;
+  }
+  
+.searchButton {
+    width: 40px;
+    height: 35px;
+    border: 1px solid #00508f;
+    background: #00508f;
+    text-align: center;
+    color: black;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+.searchButton img{
+  width: 20px;
+  height: 20px;
+  object-fit: scale-down;
+
+}
+
+
+.hotel-list {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.hotel-item {
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    text-align: center;
+}
+
+
+.hotel-details h2 {
+    margin: 10px 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.hotel-details p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+.hotel-details button img{
+  width: 60px;
+  height: 60px;
+  object-fit: fill;
+
+}
+
+.button-container {
+    display: flex;
+    /*flex-wrap: wrap;*/
+   /* justify-content: space-between; /* Distribute the buttons horizontally */
+    gap: 10px; /* Adjust the gap as needed to control spacing between buttons */
+    margin-bottom: 20px; /* Add spacing between groups of buttons */
+    justify-content: center;
+  }
+  
+  .button {
+    margin-right: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #0F69D4;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  /* Style for the button container */
+button.image-button {
+    display: flex;
+    align-items: center;
+    background:none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Style for images within buttons */
+  button.image-button img.fit-picture {
+    width: 60px; 
+    height: 60px; 
+    margin-right: 10px; 
+    border-radius: 30px;
+    border: none; 
+  }
+  h1{
+    text-align: center;
+  }
