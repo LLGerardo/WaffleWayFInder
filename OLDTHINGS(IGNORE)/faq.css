@@ -1,0 +1,64 @@
+/* Apply styles to anchor links */
+a.nav-link:link, a.nav-link:visited {
+    text-decoration: none; /* Remove underlines from links */
+    color: #231e1e; /* Set text color to black */
+}
+a.nav-link:hover, a.nav-link:active {
+    text-decoration: none; /* Remove underlines from links */
+    color: #be2020; /* Set text color to black */
+}
+button{
+    background-color: bisque;
+}
+#back-to-top-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  #back-to-top-button:hover {
+    background-color: bisque;
+  }
+/* Style for the button container */
+button.image-button {
+  display: flex;
+  align-items: center;
+  background: #0056b3;
+  border-color: black;
+  cursor: pointer;
+}
+
+/* Style for images within buttons */
+button.image-button img.fit-picture {
+  width: 40px; /* Adjust the image width as needed */
+  height: 40px; /* Adjust the image height as needed */
+  margin-right: 10px; /* Add spacing between image and text (optional) */
+}
+
+/* Style for rounded background */
+.rounded-background {
+    background-color: #0056b3; /* Set the background color */
+    border-radius: 10px; /* Adjust the border radius to control the degree of rounding */
+    padding: 20px; /* Add padding for content within the rounded background */
+  }
+/* Apply styles to sections */
+body {
+    margin: -10px;
+    background-color: lightblue;
+}
+strong{
+    text-decoration-line: underline;
+    color: black;
+}
+section {
+    background-color: #0056b3;
+    color: #D47A0F;
+    margin: 20px;
+}

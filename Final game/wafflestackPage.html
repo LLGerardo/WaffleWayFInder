@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       
+        <style>
+            body {
+                background-color: #d9e8f5;
+            }
+        </style>
+
+        <style> /*Navigation bar styling*/
+            /* Style for the navigation bar */
+            .navbar {
+                background-color: none; /*So that it is clear*/
+                overflow: hidden;
+                position:relative; /*not sure what position to use for this part? Ask prof later after demo*/
+                top: -100px;
+                right: 300px;
+                height: 40px;
+            }
+    
+            /* Style for the navigation bar buttons */
+            .navbar a {
+                float: right;
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 10px 16px;
+                text-decoration: none;
+            }
+    
+            /* Style for the navigation bar buttons on hover */
+            .navbar a:hover {
+                background-color: none; /*so that navigation bar is clear when hovered over*/
+                color: rgb(0, 98, 255);
+            }
+
+            .how-to-play { /*Styles the how to play section on website*/
+            position: absolute;
+            top: 150px; /* Adjust the top value to position it downward */
+            left: 0px; /* Adjust the left value to move it to the left */
+            color: black;
+        }
+        </style>
+
+        <!--  COLOR BLUE: C6E3F3  ClearLogo.png-->
+        <!-- imports font from google to use League Gothic -->
+        <link href='https://fonts.googleapis.com/css?family=League Gothic' rel='stylesheet'>
+        
+        <meta charset="UTF-8">
+<!-- title for the webpage appears in the window, tab heading and the favicon in tab... -->
+        <link rel="icon" type="image/x-icon" href="/waff.png">
+        <img3 src="WaffleWay Logos (1).png" alt="Waffleway waffle stack game with image of stack of waffles on plate">
+
+        <title>WaffleWay</title>
+        <link rel="stylesheet" href="./wafflestackPage.css" />
+
+
+        <!-- This links to faq page
+        <title>Frequently Asked Question</title>
+        <link rel="stylesheet" type="text/css" href="faq.css">-->
+
+    </head>
+    <body>
+
+
+        <!-- Need to change to be linked to the home page!!!!-->
+
+        
+        <h1><a href="http://127.0.0.1:3000/homepage/homepage.html" class="nav-Link">WaffleWay</a></h1> 
+    <!-- <a style="text-decoration:none" href ="http://127.0.0.1:3000/game.html">WaffleWay</a>  this is like a hyperlink which we could also use instead of the picture of the logo???-->
+        <h2><a href="http://127.0.0.1:3000/homepage/homepage.html" class="header2-Link">Your Hotel Finder</a></h2>
+       <!--
+            <h3> How to play</h3>
+        <p style="text-align:Left; font-size: 15px">
+            HOW TO PLAY
+            <br>Using the mouse or the spacebar to have the waffle be placed ontop of the initial waffle. <br>Then continue to stack until you reach the limit. If you miss the piece of the waffle will <br> fall off making you lose space to place the next waffle. 
+        </p>
+
+        <p>
+            <a href="http://127.0.0.1:3000/game.html">
+             <img src="WaffleWay Logos (1).png">
+
+            </a>
+
+        </p> -->
+        
+        <div class="navbar">
+            <a href="home.html">Home</a>
+            <a href="reciepe.html">Recipe</a>
+            <a href="faq.html">FAQ</a>
+            <a href="login.html">Login</a>
+        </div>
+        
+        <img src="WaffleWay Logos (3).png" alt="Waffleway waffle stack game with image of stack of waffles on plate">
+        
+        <!-- Text explaining how to play the game -->
+        <div class="how-to-play" >
+            <h3>Instructions</h3>
+                <p>
+                    Once the game starts, you'll typically see a base or platform, and blocks that 
+                    <br>you need to stack on top of each other. Use the mouse by clicking to 
+                    <br>position and drop the blocks onto the platform. Be careful to stack them as 
+                    <br>straight and balanced as possible.
+                </p>
+            
+        </div>
+
+        
+        
+        <div id="container">
+            <div id="game"></div>
+            <!--<div id="score">0</div>-->
+            <div id="score" style="visibility: hidden;">0</div>
+
+
+        </div>
+        <div class="game-ready">
+            <div id="start-button">START</div>
+        </div>
+        <!--
+            <div id="container2">
+            <button id="start-button">Start Game</button>
+          </div>
+        -->
+        
+
+        <!--
+            <div class = "container">
+            <div class= "image"> <img2 src="WaffleWay Logos (3).png">
+        </div>
+        -->
+
+
+        <!-- This is the clear logo. We later need to link it to the homepage-->
+       
+         <!--  The code to insert the logo into website as image and linked into 
+        <p>
+            <a href="http://127.0.0.1:3000/game.html">
+             <img src="ClearLogo.png">
+            </a>
+           </p>
+        -->
+
+    <!-- Link to the libraries that we are using-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script src="./wafflestackPage.js"></script> <!-- link to the game javascript page-->
+
+
+
+    </body>
+        
+
+</html>
