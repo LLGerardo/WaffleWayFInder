@@ -12,6 +12,35 @@ align-items: center; /* Center elements horizontally */
 justify-content: center; /* Center elements vertically */
 height: 100vh;
 }
+/*    added in   */
+body {
+    margin: 0;
+    background-color: #C6E3F3;
+    color: black;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center elements horizontally */
+    justify-content: center; /* Center elements vertically */
+    height: 100vh;
+}
+
+.background-container {
+    background-image: url('../media/battercups.png'); /* Replace with the actual path to your image */
+    background-size: contain;
+    background-position: bottom left; /* Align to the bottom left */
+    background-repeat: no-repeat; /* Prevent image from repeating */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.content {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+}/*    added in   */
 
 .content {
 background-color: white;

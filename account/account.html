@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" type="text/css" href="account.css">
+</head>
+<header>
+    <a href="../homepage/homepage.html"><img class="fit-picture" src="../media/WaffleWayLogo.png" alt="WaffleWay logo a Waffle atop a fork covered in syrup" width="150" length="150"></a>
+    <div class="button-container">
+        <a href="../searchpage/searchpage.html" class="button">List</a>
+        <a href="../game/wafflestackPage.html" class="button">Make a Waffle</a>
+        <a href="../faq/faq.html" class="button">FAQ</a>
+        <a href="../login/login.html" class="button">Login</a>
+        <a href="soon-to-be-created-page5.html" class="button">Account</a>
+    </div>
+</header>
+<br>
+<body>
+    <div class="content">
+        <label><strong>Create Account</strong></label>
+        <br>
+        <label for="existinguser"> <strong>Already have an account?</strong></label>
+        <a href="../login/login.html" class="nav-link">Log In Here!</a>
+        <br>
+        <br>
+        <form action="/create-account-url" method="POST" id="accountForm">
+            <label for="email">Enter your email:</label>
+            <input type="text" id="email" name="email">
+            <br>
+            <label for="password">Choose a password:</label>
+            <input type="password" id="password" name="password">
+            <br>
+            <br>
+            <button class="button" type="submit">Create Account</button>
+        </form>
+    </div>
+    <script src="account.js"></script>
+</body>
+</html>
