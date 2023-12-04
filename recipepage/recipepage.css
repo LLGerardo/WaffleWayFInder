@@ -145,13 +145,11 @@ ul.supply-list li a:hover{
   text-align: center;
 
 }
-.Waffles h3 a{
-  display: inline-flex;
-  color: black;
-  text-decoration: wavy;
-}
-.Waffles h3 :hover{
-  background-color:#D47A0F;
+.Waffles img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 .footnote {
@@ -159,3 +157,7 @@ ul.supply-list li a:hover{
   padding: 10px;
 }
 
+
+/*Most of the CSS styles were extracted from W3 school website.*/
+/*Some of the styling ideas were looked up on google. Such as the awesome fonts,*/
+/*The notes provided in class were equally helpful*/

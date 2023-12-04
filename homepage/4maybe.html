@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Refrence for button: https://html.com/tags/button/ -->
+        <!--Refrence for map outline: https://www.w3schools.com/cssref/pr_outline.php-->
+    <title>Home Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #C6E3F3;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 20px;
+            background-color: #C6E3F3;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: flex-start;
+        }
+         
+        .button {
+            margin-right: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            background-color: #0F69D4;
+            color: white;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .data-boxes {
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+            margin-top: 30px;
+        }
+
+        .rectangular-box {
+            width: 120px;
+            height: 400px;
+            background-color: #0F69D4;
+            border-radius: 20px;
+            margin-top: 30px;
+            display: flex;
+            align-items: flex-start; 
+            justify-content: center;
+            color: white;
+            flex-direction: column;
+            padding: 20px;
+            overflow-y: auto;
+            white-space: pre-line; 
+             
+        }
+
+        .map-box {
+        width: 50%;
+        height: 300px;
+        background-color: #FFFF00; 
+        border: 10px solid #e2c140; 
+        border-radius: 10px; 
+        align-self: center;
+        margin-top: 30px;
+        position: relative; 
+
+        }
+        
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="3384f94e02msh8b810ed3e7dc995p149446jsn429d04cba883" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="3384f94e02msh8b810ed3e7dc995p149446jsn429d04cba883" crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet-omnivore@0.3.4/leaflet-omnivore.min.js"></script>
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+</head>
+
+<body>
+    <!--Links to wesite logo and button paths-->
+    <header>
+        <img class="logo" src="../media/WaffleWayLogo.png" alt="Logo">
+        <div class="button-container">
+            <a href="../searchpage/searchpage.html" class="button">Hotels</a>
+            <a href="/Users/oli/Desktop/waffle" class="button">Make a Waffle</a>
+            <a href="soon-to-be-created-page3.html" class="button">FAQ</a>
+            <a href="soon-to-be-created-page4.html" class="button">Game</a>
+            
+        </div>
+    </header>
+    <div class="data-boxes">
+        <div class="rectangular-box" id="top-waffle-makers-states">
+            <h2>Top Waffle Makers (States)</h2>
+        </div>
+        <div class="map-box" id="website-map"></div>
+        <div class="rectangular-box" id="top-waffle-makers-cities">
+            <h2>Top Waffle Makers (Cities)</h2>
+        </div>
+    </div>
+
+    <script>
+        //api: https://rapidapi.com/MapTilesApi/api/maptiles/tutorials/openstreetmap-in-english-in-your-website-using-the-free-leaflet-javascript-library
+        var map = L.map('website-map').setView([20.5, 20.1], 3);
+
+        L.tileLayer('https://maptiles.p.rapidapi.com/en/map/v1/{z}/{x}/{y}.png?rapidapi-key=3384f94e02msh8b810ed3e7dc995p149446jsn429d04cba883', {
+            attribution: 'Tiles &copy: <a href="https://www.maptilesapi.com/">MapTiles API</a>, Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            maxZoom: 19
+        }).addTo(map);
+        //custom pins for map
+        var customIcon = L.icon({
+           iconUrl: '/Users/oli/Desktop/WAFFLE FOLDER FOR LAURA/wafflepin.PNG',
+            iconSize: [32, 32],
+            iconAnchor: [16, 32],
+            popupAnchor: [0, -32]
+        });
+
+        L.marker([20.5, 20.1], { icon: customIcon })
+            .addTo(map)
+            .bindPopup('Custom Marker Popup');
+            //hotel data 
+            //hotel csv: https://www.kaggle.com/datasets/datafiniti/hotel-reviews
+        var csvData = '../media/hotels.csv';
+        omnivore.csv(csvData)
+            .addTo(map);
+    </script>
+    <script>
+        //refrence to dind top occurences in a column: https://stackoverflow.com/questions/1053843/get-the-element-with-the-highest-occurrence-in-an-array
+        //getting top ten cities and top ten states that appear in the csv
+        function updateTopWaffleMakers() {
+            var csvData = '../media/Datafiniti_Hotel_Reviews_Jun19.csv';
+
+            Papa.parse(csvData, {
+                download: true,
+                header: true,
+                complete: function (results) {
+                    console.log(results);
+                    var statesCount = {};
+                    var citiesCount = {};
+
+
+                    results.data.forEach(function (row) {
+                        var state = row['province'].trim();
+                        var city = row['city'].trim();
+
+                        statesCount[state] = (statesCount[state] || 0) + 1;
+                        citiesCount[city] = (citiesCount[city] || 0) + 1;
+                    });
+
+                    var sortedStates = Object.keys(statesCount).sort(function (a, b) {
+                        return statesCount[b] - statesCount[a];
+                    });
+                    var sortedCities = Object.keys(citiesCount).sort(function (a, b) {
+                        return citiesCount[b] - citiesCount[a];
+                    });
+                    var stateHtml = '<h3>Top Waffle Makers (States)</h3>';
+                    var cityHtml = '<h3>Top Waffle Makers (Cities)</h3>';
+                    
+                    for (var i = 0; i < 10; i++) {
+                    
+                        stateHtml += '<p style="white-space: pre-line; margin: 5px;">' + (i + 1) + '. ' + sortedStates[i].trim() + '</p>';
+                        cityHtml += '<p style="white-space: pre-line; margin: 5px;">' + (i + 1) + '. ' + sortedCities[i].trim() + '</p>';
+
+                    }
+    
+                    document.getElementById('top-waffle-makers-states').innerHTML = stateHtml;
+                    document.getElementById('top-waffle-makers-cities').innerHTML = cityHtml;
+                }
+            });
+        }
+    
+        updateTopWaffleMakers();
+    </script>
+    
+    
+</body>
+
+</html>
