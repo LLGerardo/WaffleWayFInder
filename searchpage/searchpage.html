@@ -15,21 +15,29 @@
     <header> 
       <div class="wrapper">
         <div class="logo">
+          <a href="../homepage/index.html">
           <img src="../media/WaffleWayLogo.png" alt="Waffle on the fork" width="150" length="150">
+          </a>
         </div>
-        <div class="top-bar">
-          <div class="nav-links">
-            <button type="link" class="Make A Waffle">Make A Waffle <a href="#"><i class="fa fa-cutlery"></i></a></a></button>
-            <button type="link" class="FAQ">FAQ <a href="#"><i class="fa fa-info"></i></a></a></button> 
-        
+        <div class="top-bar"><!--sets nav bar to the right (laura)-->
+          <div class="logo-container">
+            <div class="logo-wrapper">
+                <a href="game-url">
+              <img src="../media/logoforgame.png" alt="Logo" width="100" length="100">
+                </a>
+            </div>
           </div>
+          <div class="button-container">
+            <a href="../searchpage/searchpage.html" class="button">Hotels</a>
+            <a href="../recipepage/recipepage.html" class="button">Make a Waffle</a>
+            <a href="../faq/faq.html" class="button">FAQ</a>
+           <!--<a href="../login/login.html" class="button">Login</a>--> 
+            <a href="../game/wafflestackPage.html" class="button">Game</a>
         </div>
-      
+        </div>
         </div>
     </header>
-
       <h1> Discover Hotels with waffle makers</h1>
-        <div class="wrap">
           <div class="search">
             <form id="hotelSearchForm">
               <label for="city">City:</label>
@@ -38,11 +46,9 @@
              <img src="../media/magnifying-glass.png">
             </button>
             </form>
-            <div id="hotelResults"></div>
           </div>
-        </div>
-  
+      <div id="hotelResults"></div>
         <script src="searchpage.js"></script>
-    
+   
   </head>
 </html>

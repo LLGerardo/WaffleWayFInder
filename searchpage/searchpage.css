@@ -1,187 +1,129 @@
-body {
-   background-image:url('../media/waffles-waffle.gif'); 
-    background-size: cover;
-   background-repeat:repeat;
-   }
-h1{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: #D47A0F;
-}
 .wrapper {
-    max-width: 3000px;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 3000px;
+  margin: auto;
+  padding: 20px;
+  background-image:url('../media/waffles-waffle.gif');
+  background-size:inherit;
+  background-repeat:no-repeat;
+  background-position: center;
 }
 .logo img{
-    display: left;
-    margin: auto;
-    width: 300px;
-    height: 300px;
+  display: left;
+  margin: auto;
+  width: 300px;
+  height: 300px;
+}
+.logo img:hover{
+  background-color: #d47a0f ;
 }
 
 .top-bar {
-    text-align: right;
+  text-align:right;
+  padding: 10px;
 }
 
 .nav-links {
-    display: inline;
-    margin-right: 20px;
+  display: inline-block;
+  margin-right: 10px;
+
 }
 
 .nav-links button {
-    width:100px;
-    height: 40px;
-    color:#D47A0F;
-    text-decoration-color: #d47a0f;
-    background-color: #00508f;
+  width:100px;
+  height: 40px;
+  border-radius: 10px;
+  padding: 10px;
+  color:#D47A0F;
+  text-decoration-color: #d47a0f;
+  background-color:#0F69D4;
+  border:none;
+}
+.nav-links button:hover{
+  background-color: #0a304e;
 }
 
+.nav-links button i {
+  font-size: 15px; /* Adjust the icon size as needed */
+  margin-right: 5px;
+  color:#D47A0F
+}
 
-.wrap{
-  width: 50%;
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+h1{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: #D47A0F;
+  text-align: center;
 }
 
 .search {
-    width: 100%;
-    position: relative;
-    display: flex;
+  width: 100%;
+  position:relative;
+  display: flex;
 }
-  
-.searchTerm {
-    width: 100%;
-    border: 3px solid #00508f;
-    border-right: none;
-    padding: 5px;
-    height: 20px;
-    border-radius: 10px 0 0 10px;
-    outline: none;
-    color: #9DBFAF;
-}
-  
-.searchTerm:focus{
-    color:black;
-  }
-  
-  .searchButton {
-    width: 50px;
-    height: 35px;
-    border: 1px solid #00508f;
-    background: #00508f;
-    text-align: justify;
-    color: black;
-    margin-right: 50 px;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-    font-size: 20px;
-}
-.searchButton img{
-  width: 20px;
-  height: 20px;
-  object-fit: scale-down;
 
+form {
+  display: flex;
+  align-items: center;
+}
+
+label {
+  margin-left: 600px;
+  color: transparent;
+}
+
+input {
+  padding: 9px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+button.searchButton {
+  padding: 7px 12px;
+  border: none;
+  border-radius: 4px;
+  background-color:#0F69D4; /* Change color as needed */
+  color: white;
+  cursor: pointer;
+}
+
+button.searchButton:hover {
+  background-color: #0056b3; /* Change color as needed */
+}
+
+button.searchButton img {
+  width: 20px; /* Adjust the size of the magnifying glass icon */
+}
+
+#hotelResults{
+  margin-top: 20px;
+  padding: 20px;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  color: #D47A0F;
 }
 
 .state:focus{
   color: black
 }
-
-.searchButton { 
-  width: 40px;
-  height: 35px;
-  border: 3px solid #00508f;
-  background: #00508f;
-  text-align: center;
-  color: black;
-  margin-left: 500 px;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  font-size: 20px;
-}
-.searchButton img{
-width: 20px;
-height: 20px;
-object-fit: scale-down;
-}
-
-.hotel-list {
-    display: flex;
-    flex-direction: row;
-    justify-content:space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.hotel-item {
-    width: 300px;
-    margin: 20px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
-    text-align: center;
-}
-
-
-.hotel-details h2 {
-    margin: 10px 0;
-    font-size: 24px;
-    color: #333;
-}
-
-.hotel-details p {
-    margin: 0;
-    font-size: 16px;
-    color: #333;
-}
-.hotel-details button img{
-  width: 60px;
-  height: 60px;
-  object-fit: fill;
-
-}
-
 .button-container {
-    display: flex;
-    /*flex-wrap: wrap;*/
-   /* justify-content: space-between; /* Distribute the buttons horizontally */
-    gap: 10px; /* Adjust the gap as needed to control spacing between buttons */
-    margin-bottom: 20px; /* Add spacing between groups of buttons */
-    justify-content: center;
-  }
-  
-  .button {
-    margin-right: 10px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    background-color: #0F69D4;
-    color: white;
-    cursor: pointer;
-    text-decoration: none;
-  }
-  /* Style for the button container */
-button.image-button {
-    display: flex;
-    align-items: center;
-    background:none;
-    border: none;
-    cursor: pointer;
-  }
-  
-  /* Style for images within buttons */
-  button.image-button img.fit-picture {
-    width: 60px; 
-    height: 60px; 
-    margin-right: 10px; 
-    border-radius: 30px;
-    border: none; 
-  }
-  h1{
-    text-align: center;
-  }
+  display: flex;
+  /*flex-wrap: wrap;*/
+ /* justify-content: space-between; /* Distribute the buttons horizontally */
+  gap: 10px; /* Adjust the gap as needed to control spacing between buttons */
+  margin-bottom: 20px; /* Add spacing between groups of buttons */
+  justify-content: center;
+}
+
+.button {
+  margin-right: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #0F69D4;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  align-items: right;
+}
   

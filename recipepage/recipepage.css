@@ -3,7 +3,25 @@ body, h1 {
     padding: 0;
     
   }
-
+  .button-container {
+    display: flex;
+    /*flex-wrap: wrap;*/
+   /* justify-content: space-between; /* Distribute the buttons horizontally */
+    gap: 10px; /* Adjust the gap as needed to control spacing between buttons */
+    margin-bottom: 20px; /* Add spacing between groups of buttons */
+    justify-content: center;
+  }
+  
+  .button {
+    margin-right: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #0F69D4;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+  }
   
 .logo img{
     display: left;
