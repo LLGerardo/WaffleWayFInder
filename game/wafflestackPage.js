@@ -1,3 +1,7 @@
+function returnback(){
+    window.location.href="game.html";
+}
+
 "use strict";
 console.clear();
 
@@ -14,14 +18,17 @@ class Stage {
             this.scene.remove(elem);
         };
         this.container = document.getElementById('game');
-        
+        this.container.style.marginLeft = '400px';
+        this.container.style.marginTop = '110px';
+
+       
         // renderer
         this.renderer = new THREE.WebGLRenderer({
             antialias: true,
             alpha: false
         });
-        this.renderer.setSize(window.innerWidth/2, window.innerHeight/2);
-        this.renderer.setClearColor('#D0CBC7', 1);
+        this.renderer.setSize(600, 600);
+        this.renderer.setClearColor('#066294', 1); //Use this as the background bc of the contrast
         this.container.appendChild(this.renderer.domElement);
         // scene
         this.scene = new THREE.Scene();
@@ -29,6 +36,7 @@ class Stage {
         let aspect = window.innerWidth/2 / window.innerHeight/2;
         let d = 20;
         this.camera = new THREE.OrthographicCamera(-d * aspect, d * aspect, d, -d, -100, 1000);
+
         this.camera.position.x = 2;
         this.camera.position.y = 2;
         this.camera.position.z = 2;
@@ -42,19 +50,19 @@ class Stage {
         window.addEventListener('resize', () => this.onResize());
         this.onResize();
     }
-    setCamera(y, speed = 5.0) {
-        TweenLite.to(this.camera.position, speed, { y: y + 4, ease: Power1.easeInOut });
+    setCamera(y, speed = .05) {//5.0
+        TweenLite.to(this.camera.position, speed, { y: y + .1, ease: Power1.easeInOut }); //4
         TweenLite.to(this.camera.lookAt, speed, { y: y, ease: Power1.easeInOut });
     }
     onResize() { //This is what I changed to make the window of the game more smaller - divided the height and width
-        let viewSize = 30;
-        this.renderer.setSize(900, 800); //change the grey window of the block game HERE!
+        let viewSize = 32; //Changes how close the stack is to the persepective of the front
+        this.renderer.setSize(600, 600); //change the size of the grey window of the block game HERE!
 
         //this.renderer.setSize(window.innerWidth/2, window.innerHeight/2);
         this.camera.left = window.innerWidth/2 / -viewSize;
         this.camera.right = window.innerWidth/2 / viewSize;
-        this.camera.top = window.innerHeight/2 / viewSize;
-        this.camera.bottom = window.innerHeight/2 / -viewSize;
+        this.camera.top = window.innerHeight/3 / viewSize; //top perspective angle
+        this.camera.bottom = window.innerHeight/1 / -viewSize; //where the black block starts off at
         this.camera.updateProjectionMatrix();
     }
 }
@@ -62,7 +70,7 @@ class Block {
     constructor(block) {
         // set size and position
         this.STATES = { ACTIVE: 'active', STOPPED: 'stopped', MISSED: 'missed' };
-        this.MOVE_AMOUNT = 12;
+        this.MOVE_AMOUNT = 15; //How many blocks/lenght the block  moves from side to side
         this.dimension = { width: 0, height: 0, depth: 0 };
         this.position = { x: 0, y: 0, z: 0 };
         this.targetBlock = block;
@@ -98,8 +106,8 @@ class Block {
         // state
         this.state = this.index > 1 ? this.STATES.ACTIVE : this.STATES.STOPPED;
         // set direction
-        this.speed = -0.1 - (this.index * 0.03); //This is the part that edits the speed at which the blocks fly in
-        if (this.speed < -4)
+        this.speed = -0.05 - (this.index * 0.03); //This is the part that edits the speed at which the blocks fly in
+        if (this.speed < -7)
             this.speed = -4;
         this.direction = this.speed;
         // create block
@@ -112,7 +120,7 @@ class Block {
             this.position[this.workingPlane] = Math.random() > 0.5 ? -this.MOVE_AMOUNT : this.MOVE_AMOUNT;
         }
     }
-    
+   
     reverseDirection() {
         this.direction = this.direction > 0 ? this.speed : Math.abs(this.speed);
     }
@@ -177,11 +185,9 @@ class Block {
 class Game {
     constructor() {
         this.STATES = {
-            'LOADING': 'loading',
             'PLAYING': 'playing',
             'READY': 'ready',
             'ENDED': 'ended',
-            'RESETTING': 'resetting'
         };
         this.blocks = [];
         this.state = this.STATES.LOADING;
@@ -200,28 +206,27 @@ class Game {
         this.addBlock();
         this.tick();
         this.updateState(this.STATES.READY);
-        
-
-
+       
+       
     // Add a click event listener to the button
     this.startButton.addEventListener('click', () => this.onStartRestartButtonClick());
+       
     this.startButton.addEventListener('start-button', () => this.onStartRestartButtonClick());//dosen't work rn
 
 
-/* if(game.state == game.STATES.LOADING){
-                this.starttextcontainer.style.visibility = 'visible';
-            }*/
+
         //if click on page
         document.addEventListener('click', e => {
             // Handle the click event or trigger the game actions here
-            
+           
             if (game.state === game.STATES.READY) {
                 game.startGame();
+                this.scoreContainer.style.visibility = 'visible'; // Make the score visible
             } else if (game.state === game.STATES.PLAYING) {
                 game.placeBlock();
             }
         });
-        //if click on start button
+        //if click on start button //Couldn't get this to work but I wanted to leave it to show that I tried to implement this
         document.addEventListener('start-button', e => {
     // Handle the touch event or trigger the game actions here
     if (game.state === game.STATES.READY) {
@@ -230,36 +235,18 @@ class Game {
     } else if (game.state === game.STATES.PLAYING) {
         game.placeBlock();
     }
-            // this.onAction();
-            // ☝️ this triggers after click on android so you
-            // insta-lose, will figure it out later.
         });
-        
+       
     }
-    onStartRestartButtonClick() {
-        // Handle the button click logic here.
-        // This function is called when the button is clicked.
-        // You can put your game restart logic here.
-        switch (this.state) {
-            case this.STATES.READY:
-                this.startGame();
-                break;
-            case this.STATES.PLAYING:
-                this.placeBlock();
-                break;
-            case this.STATES.ENDED:
-                this.restartGame();
-                break;
-        }
-    }
-      
+   
+     
     updateState(newState) {
         for (let key in this.STATES)
             this.mainContainer.classList.remove(this.STATES[key]);
         this.mainContainer.classList.add(newState);
         this.state = newState;
     }
-    
+   
     startGame() {
         if (this.state != this.STATES.PLAYING) {
             this.scoreContainer.style.visibility = 'visible'; // Make the score visible
@@ -268,41 +255,7 @@ class Game {
             this.addBlock();
         }
     }
-    restartGame() {
-        /*
-        this.updateState(this.STATES.RESETTING);
-        let oldBlocks = this.placedBlocks.children;
-        let removeSpeed = 0.2;
-        let delayAmount = 0.02;
-        for (let i = 0; i < oldBlocks.length; i++) {
-            TweenLite.to(oldBlocks[i].scale, removeSpeed, { x: 0, y: 0, z: 0, delay: (oldBlocks.length - i) * delayAmount, ease: Power1.easeIn, onComplete: () => this.placedBlocks.remove(oldBlocks[i]) });
-            TweenLite.to(oldBlocks[i].rotation, removeSpeed, { y: 0.5, delay: (oldBlocks.length - i) * delayAmount, ease: Power1.easeIn });
-        }
-        let cameraMoveSpeed = removeSpeed * 2 + (oldBlocks.length * delayAmount);
-        this.stage.setCamera(2, cameraMoveSpeed);
-        let countdown = { value: this.blocks.length - 1 };
-        TweenLite.to(countdown, cameraMoveSpeed, { value: 0, onUpdate: () => { this.scoreContainer.innerHTML = String(Math.round(countdown.value)); } });
-        this.blocks = this.blocks.slice(0, 1);
-        setTimeout(() => {
-            this.startGame();
-        }, cameraMoveSpeed * 1000);
-        */
-       // Remove all previously placed blocks
-        this.placedBlocks.children.length = 0;
-
-    // Remove all previously chopped blocks
-        this.choppedBlocks.children.length = 0;
-
-        this.blocks = [];
-        this.updateState(this.STATES.READY); // Change the state to ready for a new game.
-        this.scoreContainer.style.visibility = 'hidden';
-        this.addBlock();
-        /*
-        this.blocks = this.blocks.slice(0, 1);
-        setTimeout(() => {
-            this.startGame();
-        }, cameraMoveSpeed * 1000);*/
-    }
+   
     placeBlock() {
         let currentBlock = this.blocks[this.blocks.length - 1];
         let newBlocks = currentBlock.place();
@@ -336,16 +289,15 @@ class Game {
             return this.endGame();
         }
         this.scoreContainer.innerHTML = String(this.blocks.length - 1);
-        let newKidOnTheBlock = new Block(lastBlock);
-        this.newBlocks.add(newKidOnTheBlock.mesh);
-        this.blocks.push(newKidOnTheBlock);
+        let newestBlockAdded = new Block(lastBlock);
+        this.newBlocks.add(newestBlockAdded.mesh);
+        this.blocks.push(newestBlockAdded);
         this.stage.setCamera(this.blocks.length * 2);
-        if (this.blocks.length >= 5)
-            this.instructions.classList.add('hide');
+       
     }
     endGame() {
         this.updateState(this.STATES.ENDED);
-        this.updateState(this.STATES.LOADING);
+
     }
     tick() {
         this.blocks[this.blocks.length - 1].tick();

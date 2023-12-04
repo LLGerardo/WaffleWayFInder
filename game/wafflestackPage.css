@@ -1,112 +1,143 @@
-/* CSS Centering Code with the h2 Selector "*" */ 
-
-h1 {
-    text-align: left;
-    margin:0px;
-    margin-left: 50px; /*Moved because of pin image on the left of header*/
-    color: #D47A0F;
-    }
-h2{
-    font-size: 30px;
-    margin-left: 80px; /*moved because of pin image on the left of header*/
-    margin-top: -10px;
-    color:#000000;
-    /*    cursor: pointer;*/
-}
-h3{
-    font-size: 30px; /*heading for instructions for game*/
-    margin-left: 160px; /*moved because of pin image on the left of header*/
-    margin-top: 330px;
-    color:#fbbb27;
-    /*    cursor: pointer;*/
-}
-/*Can change how the pointer is presented when hovering over the text*/
-p{
-    margin-left: 20px;
-    font-size: 18px;
-    text-align: left;
-}
 /*
-img{ adjusts the image of logowaff 
-    width: 200px;
-    height: 200px;
-    float: left;
-    position: left;
-    margin-left:-80px; /*has to be in negative or else it won't get more left
-    margin-top:-400px;
-     float: left; Changes the position of image left or right using inline styles
-}
+Here is the css page
 */
-
-img {
-    /*padding: 5px;*/
-    position: relative; /*Changed from absolute to relative so it move with the flow of the window*/
-    margin-top: 90px;
-    margin-left: 0px;
-    /*width: 320px;*/
-    
-  }
-  
-
+/* CSS Centering Code with the h2 Selector "*" */ 
+header {
+  margin-top: -40px;
+  margin-left: -20px;
+  font-family: serif, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
+  font-size: 16px;
+  background-color: #C6E3F3;
+}
+.button-container { /*Container where buttons are in. Affects the whole group*/
+  display: flex;
+  margin-right: 100px; /*170 before*/
+  /*flex-wrap: wrap;*/
+ /* justify-content: space-between; /* Distribute the buttons horizontally */
+  gap: 10px; /* Adjust the gap as needed to control spacing between buttons */
+  margin-bottom: 10px; /* Add spacing between groups of buttons */ /*120 before*/
+  justify-content: center;
+}
+.button { /*Affects the actual buttons size and things like that*/
+  margin-right: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #0F69D4;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
 
     /* Styling */
     
     body {
+      display: static;
       margin: auto;
       width: 100%; 
       padding: 50px;
       font-family: 'League Gothic', sans-serif;
-      font-size: 30px;
+      font-size: 16px;
       font-style:normal;
-      color: #e1a014;    
+      /*color: #e1a014;*/
+      background-color: #C6E3F3;
+      
     }
     
+    .GameLogo{
+      margin-top: 30px;
+      margin-left: 40px;
+    }
+
+    .InstructionDescription { /*Styles the how to play section on website*/
+      text-align: left; /*aligns text*/
+      /*margin-top: 10px;*/
+      margin-top: -300px;
+      margin-left: 500px;
+      padding: 25px;
+      width: 55%;
+      font-family: serif, sans-serif;
+      font-size: 18px;
+      font-style:normal;
+      background-color: #C6E3F3;
+      color: black;
+      border-radius: 50px;
+      border: 2px dashed #ffb514;
+    }
+    .block{
+      margin-left: 205px;
+      size: 100%;
+      display: block;
+      width: 150px;
+      height: 40px;;
+      text-align: center;
+      cursor: pointer;
+      color: #fcfcfc;
+      font-size: 16px;
+      background-color: #0F69D4;
+      font-family: serif, sans-serif;
+    
+    }
+/*GAME JS STYLING*/
+    
+    .GameScoreHead{ /* Heading for Score*/
+      font-family: 'Press Start 2P';
+      font-size: 52px;
+      margin-top: 180px;
+      margin-left: -40px;
+    }
     #container {
         /*margin-top: -300px;*/
-      width: 15px;
-      height: 30px;
+      display: flex;
+      width: 30%;
+      height: 20px;
+      margin-top: -20px;
+      margin-left: 450px;
       position: relative; /*Changed from absolute to relative so it move with the flow of the window*/
-      top: -100px;
-      left:350px;
+      /*top: 500px;
+      left:800px;*/
       transform: translate(-50%, -50%);
-      pointer-events: auto;    
-    
+      pointer-events: auto;
     }
     #container #game { /*moves the actual stack position of the game*/
+      display: flex;
         position: relative;
         top: 0;
         bottom: 0;
         left: 0;
       }
     #container #score {
-        position: relative; /*Changed from absolute to relative so it move with the flow of the window*/
-        top:-900px ;
-        left:800px;
-        /*
-        width: 100%;
-        */
-        font-size: 35px;
+        display: flex;
+        font-family: sans-serif;
+        margin-left: -839px;
+        margin-top: 160px;
+        font-size: 225px;
         transition: transform 0.5s ease;
-        color: #2020ff;
+        color: #ff209b;
       }
-    #container .game-over{
-      position: relative;
-      top: 0;
-      left: 0;
-      bottom: 0;
+      
+    #container .game-over{ /*moves the Game over message*/
+      position: flex;
+      font-size: 30px;
+      margin-top: 110px;
+      margin-left: 580px;
+      width: 90%;
+
       /*3:09stamp*/
     }
     #container .game-over *{
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      transition: opacity 0.s ease, transform 0.5s ease;
       opacity: 0;
+      color: #D47A0F;
       transform: translateY(-50px);
-      color: #ea68c1;
+
     }
-    #container .game-over h2{ /*header for game over*/
-      margin: 0;
-      padding: 0;
-      font-size: 40px;
-    }
+
     #container .game-ready{
       position: relative;
       top: 0;
@@ -118,6 +149,7 @@ img {
       align-items: center;
       justify-content: space-around;
     }
+    
     #container .game-ready #start-button {
       transition: opacity 0.5s ease, transform 0.5s ease;
       opacity: 0;
@@ -126,18 +158,22 @@ img {
       padding: 10px 20px;
       background-color: aqua;
       color: #ea68c1;
+      opacity: 0.0;
       font-size: 30px;
     }
+    
 
     #container.playing #score, #container.resetting #score {
         transform: translatey(0px) scale(1);
     }
+    
     #container.ready .game-ready #start-button {
-        opacity: 1;
+        opacity: 0;
         transform: translatey(0);
     }
+    
     #container.ended #score {
-        transform: translatey(6vh) scale(1.5);
+        transform: translatey(1.8vh) scale(1);
     }
     #container.ended .game-over * {
         opacity: 1;
@@ -147,60 +183,11 @@ img {
         transition-delay: 0.3s;
     }
 
-#container #instructions { /*Game instructions*/
-  position: relative; /*Changed from absolute to relative so it move with the flow of the window*/
-  width: 100%;
-  top: 350px;
-  left: 100px;
-  text-align: center;
-}
-
-    /* This is for the linking to the other page rn it's displayed as "Home" and it links to the login page*/
     
-/* Navlink for headers got this from online*/
-a.nav-Link:link{
-    color:#D47A0F;
-    text-decoration: none;
-}
-a.nav-Link:visited
-{
-   color: #D47A0F;
-   text-decoration: none;
-}
-a.nav-Link:hover
-{
-   color: #D47A0F;
-   text-decoration: none;
-}
-a.nav-Link:active
-{
-   color: #D47A0F;
-   text-decoration: none;
-}
-/*header2*/
-a.header2-Link:link{
-    color:#000000;
-    text-decoration: none;
-}
-a.header2-Link:visited
-{
-   color: #000000;
-   text-decoration: none;
-}
-a.header2-Link:hover
-{
-   color: #000000;
-   text-decoration: none;
-}
-a.header2-Link:active
-{
-   color: #000000;
-   text-decoration: none;
-}
-
 
 /* Style for the button */
-#start-button {
+
+#start-button { /*Made opacity 0 so that it is clear. The game works with this button just existing but won't start without it.*/
   text-align: center;
   background-color: #ffc1fe;  
   color: rgb(0, 0, 0); 
@@ -211,27 +198,12 @@ a.header2-Link:active
   cursor: pointer; /* Add a pointer cursor on hover */
   font-size: 16px; /* Set the font size */
   width: 100px;
+  opacity: 0.0;
+
 }
 /* Style for the button on hover */
 #start-button:hover {
   background-color: #ea68c1; /* Darker green color on hover */
 }
-.button-container {
-  display: flex;
-  /*flex-wrap: wrap;*/
- /* justify-content: space-between; /* Distribute the buttons horizontally */
-  gap: 10px; /* Adjust the gap as needed to control spacing between buttons */
-  margin-bottom: 20px; /* Add spacing between groups of buttons */
-  justify-content: center;
-}
 
-.button {
-  margin-right: 10px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  background-color: #0F69D4;
-  color: white;
-  cursor: pointer;
-  text-decoration: none;
-}
+

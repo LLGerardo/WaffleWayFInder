@@ -1,0 +1,161 @@
+body, h1 {
+    margin: 0;
+    padding: 0;
+    
+  }
+
+  
+.logo img{
+    display: left;
+    margin: auto;
+}
+.logo img:hover{
+  background-color: #d47a0f ;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+
+.logo-wrapper {
+  position: absolute;
+  top: 52px;
+  margin-right: 20px;
+}
+.logo-wrapper:hover{
+  background-color:#D47A0F;
+}
+
+  /* Styling the header */
+.header {
+    background-color:#0F69D4;
+    text-align: center;
+    padding: 15px 0;
+    border-radius: 10px;
+    width: 500px;
+    margin:auto;
+  }
+.header h1 {
+    color: #D47A0F;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+.top-bar {
+    text-align: right;
+}
+
+.nav-links {
+    display: inline;
+    margin-right: 10px;
+
+}
+
+
+.nav-links button {
+    width:100px;
+    height: 40px;
+    border-radius: 10px;
+    padding: 10px;
+    color:#D47A0F;
+    text-decoration-color: #d47a0f;
+    background-color: #0F69D4;
+    border:none;
+}
+.nav-links button:hover{
+    background-color: #0a304e;
+}
+
+.nav-links button i {
+    font-size: 20px; /* Adjust the icon size as needed */
+    margin-right: 5px;
+    color:#D47A0F
+}
+.lists-container {
+  display: flex;
+  justify-content: space-between;
+  
+  
+}
+.recipes, .supplies {
+  width: 45%; /* Adjust the width of each list container */
+  flex: 1;
+  text-align: center;
+}
+
+
+h2{
+  color: black;
+  text-align: center;
+  font-size:xx-large;
+}
+ul.recipe-list {
+  list-style: none;
+  padding: 0px;
+}
+
+/* Target the li elements within the recipe-list */
+ul.recipe-list li {
+  margin-bottom: 10px;
+  margin-left: 10px;
+  background-color:#0F69D4;
+}
+
+/* Style the anchor tags within the li elements */
+ul.recipe-list li a {
+  margin-left: 20px;
+  display:inline-block;
+  padding: 20px 30px;
+  background-color:#ffaa00;
+  color:black;
+  text-decoration: wavy;
+  border-radius: 30px;
+}
+ul.recipe-list li a:hover{
+  background-color: #d47a0f;
+}
+
+ul.supply-list {
+  list-style: none;
+  padding-left: 10px;
+}
+ul.supply-list li {
+  margin-bottom: 10px;
+  margin-right: 20px;
+  background-color: #0F69D4;
+}
+
+ul.supply-list li a{
+  margin-right: 20px;
+  display:inline-block;
+  padding: 20px 30px;
+  background-color:#ffaa00;
+  color:black;
+  text-decoration: wavy;
+  border-radius: 30px;
+
+}
+ul.supply-list li a:hover{
+  background-color: #d47a0f;
+}
+
+.Waffles h3{
+  color: black;
+  text-align: center;
+
+}
+.Waffles h3 a{
+  display: inline-flex;
+  color: black;
+  text-decoration: wavy;
+}
+.Waffles h3 :hover{
+  background-color:#D47A0F;
+}
+
+.footnote {
+  text-align: center;
+  padding: 10px;
+}
+
