@@ -57,7 +57,7 @@ h1{
     border-right: none;
     padding: 5px;
     height: 20px;
-    border-radius: 5px 0 0 5px;
+    border-radius: 10px 0 0 10px;
     outline: none;
     color: #9DBFAF;
 }
@@ -66,13 +66,14 @@ h1{
     color:black;
   }
   
-.searchButton {
-    width: 40px;
+  .searchButton {
+    width: 50px;
     height: 35px;
     border: 1px solid #00508f;
     background: #00508f;
-    text-align: center;
+    text-align: justify;
     color: black;
+    margin-right: 50 px;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
     font-size: 20px;
@@ -84,6 +85,27 @@ h1{
 
 }
 
+.state:focus{
+  color: black
+}
+
+.searchButton { 
+  width: 40px;
+  height: 35px;
+  border: 3px solid #00508f;
+  background: #00508f;
+  text-align: center;
+  color: black;
+  margin-left: 500 px;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+.searchButton img{
+width: 20px;
+height: 20px;
+object-fit: scale-down;
+}
 
 .hotel-list {
     display: flex;
@@ -162,3 +184,4 @@ button.image-button {
   h1{
     text-align: center;
   }
+  
