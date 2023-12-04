@@ -7,72 +7,42 @@
       body{
         background-color: #C6E3f3;
       }
+
     </style>
-  </head>
-  <header>
-    <a href="../homepage/homepage.html"><img class="fit-picture" src="../media/WaffleWayLogo.png" alt="WaffleWay logo a Waffle atop a fork covered in syrup" width="150" length="150"></a>
-    <div class="button-container">
-        <a href="../searchpage/searchpage.html" class="button">List</a>
-        <a href="../game/wafflestackPage.html" class="button">Make a Waffle</a>
-        <a href="../faq/faq.html" class="button">FAQ</a>
-        <a href="../login/login.html" class="button">Login</a>
-        <a href="soon-to-be-created-page5.html" class="button">Account</a>
-    </div>
-</header>
-  <body>
-   <!-- <header> 
+    <body>
+      <link rel="stylesheet" type="text/css" href="searchpage.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <header> 
       <div class="wrapper">
         <div class="logo">
           <img src="../media/WaffleWayLogo.png" alt="Waffle on the fork" width="150" length="150">
         </div>
         <div class="top-bar">
           <div class="nav-links">
-            <button type="link" class="Home" >Home</button>
-            <button type="link" class="About">About</button>
-            
-            <button type="link" class="Login">Login
-              <a href="https://urlforsignuppage"></a>
-            </button>
+            <button type="link" class="Make A Waffle">Make A Waffle <a href="#"><i class="fa fa-cutlery"></i></a></a></button>
+            <button type="link" class="FAQ">FAQ <a href="#"><i class="fa fa-info"></i></a></a></button> 
+        
           </div>
         </div>
+      
         </div>
-    </header>--> 
-      <link rel="stylesheet" type="text/css" href="searchpage.css">
+    </header>
+
       <h1> Discover Hotels with waffle makers</h1>
         <div class="wrap">
           <div class="search">
-            <input type="text" class="searchTerm" placeholder="What are you looking for?">
-            <button type="submit" class="searchButton">
-             <img src="../media/magnifying-glass.png"> <!--changed to ../media/ -->
+            <form id="hotelSearchForm">
+              <label for="city">City:</label>
+              <input type="text" id="city" name="city" value="City" >
+              <button type="submit" class="searchButton">
+             <img src="../media/magnifying-glass.png">
             </button>
+            </form>
+            <div id="hotelResults"></div>
           </div>
         </div>
-        <div class="hotel-list">
-          <div class="hotel-item">
-              <div class="hotel-details">
-                  <h2>Hotel A</h2>
-                  <p>Address of Hotel A</p>
-                  <a href="#Hotel A">Go to Hotel A</a>
-                  <button type="submit" class="addFavorite">
-                    <img src="../media/heart2.0.jpg">
-                  </button>
-                
-              </div>
-          </div>
-            <div class="hotel-item">
-              <div class="hotel-details">
-                  <h2>Hotel B</h2>
-                  <p>Address of Hotel B</p>
-                  <a href="#Hotel A">Go to Hotel B</a>
-                  <button type="submit" class="addFavorite">
-                    <img src="../media/heart2.0.jpg" alt="Favorite Heart">
-                  </button>
-              </div>
-          </div>
-          <!-- Add more hotel items as needed -->
-      </div>
   
         <script src="searchpage.js"></script>
     
-    </body>
+  </head>
 </html>

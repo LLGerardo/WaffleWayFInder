@@ -1,5 +1,5 @@
 function returnback(){
-    window.location.href="game.html";
+    window.location.href="../game/wafflestackPage.html";
 }
 
 "use strict";
