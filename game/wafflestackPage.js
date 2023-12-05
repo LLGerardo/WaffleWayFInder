@@ -106,7 +106,7 @@ class Block {
         // state
         this.state = this.index > 1 ? this.STATES.ACTIVE : this.STATES.STOPPED;
         // set direction
-        this.speed = -0.05 - (this.index * 0.03); //This is the part that edits the speed at which the blocks fly in
+        this.speed = -0.025 - (this.index * 0.03); //This is the part that edits the speed at which the blocks fly in
         if (this.speed < -7)
             this.speed = -4;
         this.direction = this.speed;
