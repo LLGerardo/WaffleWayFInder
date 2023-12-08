@@ -25,7 +25,7 @@ body {
 }
 
 .background-container {
-    background-image: url('../media/battercups.png'); /* Replace with the actual path to your image */
+    background-image: url('../media/logoforgame.png'); /* Replace with the actual path to your image */
     background-size: contain;
     background-position: bottom left; /* Align to the bottom left */
     background-repeat: no-repeat; /* Prevent image from repeating */

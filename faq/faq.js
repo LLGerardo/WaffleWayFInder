@@ -2,8 +2,8 @@
 const button = document.getElementById('back-to-top-button');
 
 button.addEventListener('click', () => {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+  document.body.scrollTop = 0; // for safari
+  document.documentElement.scrollTop = 0; // for chrome and firefox
 });
 
 window.addEventListener('scroll', () => {
@@ -16,7 +16,7 @@ window.addEventListener('scroll', () => {
 //searching
 document.getElementById("search-input").addEventListener("input", function () {
   var searchQuery = this.value.toLowerCase(); // "this" refers to the search input element
-  var sections = document.querySelectorAll("section"); // Assuming you want to search within sections
+  var sections = document.querySelectorAll("section"); // search within sections
 
   sections.forEach(function (section) {
     var sectionText = section.textContent.toLowerCase();
