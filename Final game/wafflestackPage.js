@@ -46,7 +46,7 @@ class Stage {
         TweenLite.to(this.camera.position, speed, { y: y + 4, ease: Power1.easeInOut });
         TweenLite.to(this.camera.lookAt, speed, { y: y, ease: Power1.easeInOut });
     }
-    onResize() { //This is what I changed to make the window of the game more smaller - divided the height and width
+    onResize() { //changed to make the window of the game more smaller - divided the height and width
         let viewSize = 30;
         this.renderer.setSize(900, 800); //change the grey window of the block game HERE!
 
@@ -213,7 +213,6 @@ class Game {
             }*/
         //if click on page
         document.addEventListener('click', e => {
-            // Handle the click event or trigger the game actions here
             
             if (game.state === game.STATES.READY) {
                 game.startGame();
@@ -223,7 +222,6 @@ class Game {
         });
         //if click on start button
         document.addEventListener('start-button', e => {
-    // Handle the touch event or trigger the game actions here
     if (game.state === game.STATES.READY) {
         game.startGame();
         this.scoreContainer.style.visibility = 'visible'; // Make the score visible
@@ -235,9 +233,7 @@ class Game {
         
     }
     onStartRestartButtonClick() {
-        // Handle the button click logic here.
         // This function is called when the button is clicked.
-        // You can put your game restart logic here.
         switch (this.state) {
             case this.STATES.READY:
                 this.startGame();
