@@ -230,9 +230,7 @@ class Game {
     } else if (game.state === game.STATES.PLAYING) {
         game.placeBlock();
     }
-            // this.onAction();
-            // ☝️ this triggers after click on android so you
-            // insta-lose, will figure it out later.
+           
         });
         
     }
