@@ -209,7 +209,7 @@ class Game {
         
         document.addEventListener('click', e => {
             //this.onAction();
-            // Handle the click event or trigger the game actions here
+            // Handle the click event action here?
     if (game.state === game.STATES.READY) {
         game.startGame();
     } else if (game.state === game.STATES.PLAYING) {
@@ -217,7 +217,6 @@ class Game {
     } else if (game.state === game.STATES.ENDED) {
         game.restartGame();
     }
-    // Handle the touch event or trigger the game actions here
     if (game.state === game.STATES.READY) {
         game.startGame();
     } else if (game.state === game.STATES.PLAYING) {
