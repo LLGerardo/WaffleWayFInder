@@ -206,10 +206,7 @@ class Game {
     // Add a click event listener to the button
     this.startRestartButton.addEventListener('click', () => this.onStartRestartButtonClick());
 
-        document.addEventListener('keydown', e => {
-            if (e.keyCode == 32)
-                this.onAction();
-        });
+        
         document.addEventListener('click', e => {
             //this.onAction();
             // Handle the click event or trigger the game actions here
@@ -220,9 +217,6 @@ class Game {
     } else if (game.state === game.STATES.ENDED) {
         game.restartGame();
     }
-        });
-        document.addEventListener('touchstart', e => {
-            e.preventDefault(); // Prevent the touch event from propagating
     // Handle the touch event or trigger the game actions here
     if (game.state === game.STATES.READY) {
         game.startGame();
@@ -231,9 +225,7 @@ class Game {
     } else if (game.state === game.STATES.ENDED) {
         game.restartGame();
     }
-            // this.onAction();
-            // ☝️ this triggers after click on android so you
-            // insta-lose, will figure it out later.
+           
         });
     }
     onStartRestartButtonClick() {
