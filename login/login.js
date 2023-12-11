@@ -32,3 +32,5 @@ document.querySelector('form').addEventListener('submit', function (event) {
         console.error('Error:', error);
     });
 });
+//site utilized as a base template for log in form
+//https://medium.com/@melanis/design-a-simple-login-signup-form-with-validation-using-html-css-javascript-4c9b54edd146#:~:text=To%20create%20the%20form%2C%20we,for%20the%20user%20email%20address.
